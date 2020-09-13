@@ -1,14 +1,13 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
-import sortBy from 'lodash/sortBy'
 import Helmet from 'react-helmet'
-import LazyLoad from 'react-lazyload'
 import Index from '../components/Index/index'
+import Layout from '../components/Layout'
 
 class SiteIndex extends React.Component {
   render() {
     const site = get(this, 'props.data.site.siteMetadata')
+    const { data } = this.props
 
     return (
       <div>
@@ -27,7 +26,10 @@ class SiteIndex extends React.Component {
             },
           ]}
         />
-        <Index />
+
+        <Layout location={this.props.location}>
+          <Index posts={data.remark.posts} />
+        </Layout>
       </div>
     )
   }
@@ -48,7 +50,10 @@ export const pageQuery = graphql`
         adsense
       }
     }
-    remark: allMarkdownRemark {
+    remark: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 3
+    ) {
       posts: edges {
         post: node {
           html

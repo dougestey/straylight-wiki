@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'Straylight Systems',
-    description: 'A wiki for Straylight Systems',
-    siteUrl: '',
-    author: 'trailofdad',
-    twitter: 'trailofdad',
+    description: 'The official website of the Straylight.',
+    siteUrl: 'https://straylight.systems/',
+    author: 'Straylight Command',
+    twitter: '',
     adsense: '',
   },
   pathPrefix: '/',
@@ -43,21 +43,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Gatstrap',
-        short_name: 'Gatstrap',
+        name: 'Straylight Systems',
+        short_name: 'Straylight',
         start_url: '/',
         background_color: '#fff',
-        theme_color: '#673ab7',
-        display: 'minimal-ui',
+        theme_color: '#c5ae87',
+        display: 'standalone',
         icons: [
           {
-            src: '/img/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/img/android-chrome-512x512.png',
-            sizes: '512x512',
+            src: '/img/android-chrome-256x256.png',
+            sizes: '256x256',
             type: 'image/png',
           },
         ],
@@ -66,17 +61,30 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: '',
+        trackingId: 'UA-76028302-3',
       },
     },
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        mergeSecurityHeaders: true,
+        mergeLinkHeaders: true,
+        mergeCachingHeaders: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-ghost`,
+      options: {
+        apiUrl: `https://api.straylight.systems`,
+        contentApiKey: `f60a218f1f09f209f726c0ab93`,
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-react-next',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-sitemap',
+    // 'gatsby-plugin-sitemap',
     'gatsby-plugin-twitter',
     'gatsby-transformer-sharp',
   ],

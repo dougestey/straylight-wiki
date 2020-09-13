@@ -1,1 +1,62 @@
+@import '../../components/Layout/colors.scss';
 
+.navbar {
+  text-transform: uppercase;
+  border-bottom: 1px $gray-800 solid;
+  z-index: 100;
+
+  .navbar-brand {
+    letter-spacing: 5px;
+    font-weight: 300;
+  }
+
+  &.bg-dark {
+    background-color: #17191bc4 !important;
+  }
+
+  .dropdown-menu.bg-dark {
+    border-bottom: 1px $gray-800 solid;
+    border-top: 0;
+    margin-top: 8px;
+    padding-bottom: 0;
+    left: unset;
+    right: -20px;
+    border-left: 1px $gray-800 solid;
+    border-right: 1px $gray-800 solid;
+
+    a.dropdown-item {
+      color: $gray-600;
+
+      &:last-child {
+        padding-bottom: 10px;
+      }
+
+      &:hover {
+        background: $gray-900;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      &:active {
+        color: white;
+      }
+    }
+
+    .dropdown-divider {
+      border-left: 1px $gray-800 solid !important;
+      border-right: 1px $gray-800 solid !important;
+      border-top-color: $gray-800;
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    .navbar-brand {
+      letter-spacing: 2px;
+      margin-right: 0.25rem;
+    }
+
+    &.navbar-expand .navbar-nav .nav-link {
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
+  }
+}

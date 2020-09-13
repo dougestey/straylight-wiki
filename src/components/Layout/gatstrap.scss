@@ -1,0 +1,188 @@
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+// Start with assigning color names to specific hex values.
+//
+// Color system
+//
+@import './colors.scss';
+
+// Reassign color vars to semantic color scheme
+$theme-colors: (
+  primary: $champagne,
+  secondary: $black,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-200,
+  dark: $gray-900,
+) !default;
+// Options
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-rounded: false !default;
+$enable-shadows: true !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+// Grid containers
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+);
+// Body
+// Settings for the `<body>` element.
+$body-bg: #101010 !default;
+$body-color: $gray-200 !default;
+$inverse-bg: $gray-200 !default;
+$inverse-color: $gray-900 !default;
+// Links
+// Style anchor elements.
+$link-decoration: none !default;
+$link-hover-decoration: none !default;
+// Fonts
+@import './fonts.scss';
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $white !important;
+    font-weight: 400;
+  }
+  p,
+  small {
+    letter-spacing: 1px;
+    text-shadow: 0 0 0;
+  }
+  > div,
+  > div > div,
+  > div > div > div {
+    height: 100%;
+  }
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-weight: 200;
+  img:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  a {
+    font-weight: 300;
+  }
+}
+img {
+  max-width: 100%;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 30px;
+  li {
+    em {
+      font-size: 0.9rem;
+      color: $gray-600;
+    }
+  }
+}
+a {
+  outline: 0;
+}
+.with-background {
+  background: $gray-900 url(/img/cover.jpg) center center/cover no-repeat fixed;
+  min-height: 100%;
+}
+.text-muted {
+  color: $champagne-muted !important;
+}
+.btn {
+  border-radius: 0;
+}
+
+.flash-trailer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.flash-overlay {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+figure {
+  margin: 0 0 2rem;
+}
+
+.card {
+  border-color: none;
+  border-radius: 0;
+  box-shadow: 0.25rem 0.25rem 3px rgba(0, 0, 0, 0.15);
+  transition: 250ms transform cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .card-img-top {
+    border-radius: 0;
+  }
+
+  .card-text {
+    color: $gray-500;
+  }
+
+  .author-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 5rem;
+  }
+
+  .card-footer {
+    background: $background-alt;
+    text-transform: uppercase;
+  }
+
+  &.card-statistic {
+    .card-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    margin-top: -1rem;
+    margin-bottom: -3rem;
+
+    &:hover {
+      transform: unset;
+    }
+  }
+}
